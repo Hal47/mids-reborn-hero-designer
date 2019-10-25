@@ -41,8 +41,8 @@ namespace Hero_Designer
                 if (!DatabaseAPI.LoadLevelsDatabase())
                 {
                     Interaction.MsgBox(
-                        "Failed to load Levelling data file! The program is unable to proceed.\r\n" +
-                        "We suggest you redownload the application from https://github.com/ImaginaryDevelopment/imaginary-hero-designer/releases",
+                        "Failed to load Leveling data file! The program is unable to proceed.\r\n" +
+                        "We suggest you redownload the application from https://github.com/Crytilis/mids-reborn-hero-designer/releases",
                         MsgBoxStyle.Critical, "Error");
                     ProjectData.EndApp();
                 }

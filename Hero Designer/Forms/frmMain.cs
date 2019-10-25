@@ -299,6 +299,7 @@ namespace Hero_Designer
                 Size = new Size(width1, height1);
                 tsViewIOLevels.Checked = !MidsContext.Config.I9.HideIOLevels;
                 tsViewSlotLevels.Checked = MidsContext.Config.ShowSlotLevels;
+                tsViewSelected();
                 tsIODefault.Text = "Default (" + (MidsContext.Config.I9.DefaultIOLevel + 1) + ")";
                 SetDamageMenuCheckMarks();
                 ReArrange(true);
@@ -5061,11 +5062,45 @@ namespace Hero_Designer
 
         void tsUpdateCheck_Click(object sender, EventArgs e) => TryUpdate();
 
-        void tsView2Col_Click(object sender, EventArgs e) => setColumns(2);
+        void tsViewSelected()
+        {
+            switch (MidsContext.Config.Columns)
+            {
+                case 2:
+                    tsView2Col.Checked = true;
+                    break;
+                case 3:
+                    tsView3Col.Checked = true;
+                    break;
+                case 4:
+                    tsView4Col.Checked = true;
+                    break;
+            }
+        }
 
-        void tsView3Col_Click(object sender, EventArgs e) => setColumns(3);
+        void tsView2Col_Click(object sender, EventArgs e)
+        {
+            tsView3Col.Checked = false;
+            tsView4Col.Checked = false;
+            tsView2Col.Checked = true;
+            setColumns(2);
+        }
 
-        void tsView4Col_Click(object sender, EventArgs e) => setColumns(4);
+        void tsView3Col_Click(object sender, EventArgs e)
+        {
+            tsView2Col.Checked = false;
+            tsView4Col.Checked = false;
+            tsView3Col.Checked = true;
+            setColumns(3);
+        }
+
+        void tsView4Col_Click(object sender, EventArgs e)
+        {
+            tsView2Col.Checked = false;
+            tsView3Col.Checked = false;
+            tsView4Col.Checked = true;
+            setColumns(4);
+        }
 
         void tsViewActualDamage_New_Click(object sender, EventArgs e)
         {
